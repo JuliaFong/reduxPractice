@@ -5,9 +5,15 @@ const initialState = {
     divVisible: 'no'
 }
 
-function rootReducer(state = initialState, action) {
+function rootReducer(state = initialState,
+    action) {
     switch(action.type) {
-
+    case "BUTTON_CLICKED":
+        return Object.assign({}, state, {buttonClicked: 'yes'})
+    case 'DIV_VISIBLE':
+        return Object.assign({}, state, {divVisible: "yes"})
+    default:
+        return state
     }
     return state
 }
@@ -26,6 +32,12 @@ button.addEventListener('click', function() {
     store.dispatch(divVisible)
 })
 
+store.subscribe(function() {
+    if (store.getState().divVisible === "yes") {
+        const div = document.getElementById("my-div")
+        div.style.display = "block"
+    }
+})
 
 
 store.subscribe()

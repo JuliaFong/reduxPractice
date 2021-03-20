@@ -40,4 +40,7 @@ store.subscribe(function() {
 })
 
 
-store.subscribe()
+// three most important methods of redux
+// store.dispatch()  => for dispatching action
+// store.subscribe() => for listening to state changes
+// store.getState() => for checking the state
